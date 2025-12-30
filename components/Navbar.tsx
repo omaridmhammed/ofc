@@ -27,7 +27,7 @@ const Navbar = () => {
         <nav className={styles.navbar}>
             <Link href="/" className={styles.logo} onClick={closeMenu}>
                 <Image
-                    src="/ofcnewlogo.png"
+                    src="/ofc/ofcnewlogo.png"
                     alt="Futsal Ottawa Logo"
                     width={50}
                     height={50}
