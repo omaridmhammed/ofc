@@ -7,7 +7,7 @@ const Navbar = () => {
         <nav className={styles.navbar}>
             <Link href="/" className={styles.logo}>
                 <Image
-                    src="/ofcnewlogo.png"
+                    src="/ofc/ofcnewlogo.png"
                     alt="Futsal Ottawa Logo"
                     width={80}
                     height={80}
