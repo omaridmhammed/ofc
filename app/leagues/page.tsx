@@ -6,7 +6,7 @@ export default function LeaguesPage() {
             <PageHeader
                 title="Our Leagues"
                 subtitle="Divisions for Every Skill Level"
-                image="/ofc/leagues-bg.png"
+                image="/leagues-bg.png"
             />
 
             <section className="container">

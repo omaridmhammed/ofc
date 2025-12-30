@@ -6,11 +6,11 @@ import styles from './Hero.module.css';
 const Hero = () => {
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
     const images = [
-        '/ofc/hero-1.webp',
-        '/ofc/hero-2.webp',
-        '/ofc/hero-3.webp',
-        '/ofc/hero-4.webp',
-        '/ofc/hero-5.webp'
+        '/hero-1.webp',
+        '/hero-2.webp',
+        '/hero-3.webp',
+        '/hero-4.webp',
+        '/hero-5.webp'
     ];
 
     useEffect(() => {
