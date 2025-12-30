@@ -1,33 +1,60 @@
+"use client";
+
+import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import styles from './Navbar.module.css';
 
 const Navbar = () => {
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+    const toggleMenu = () => {
+        setIsMenuOpen(!isMenuOpen);
+        // Prevent scrolling when menu is open
+        if (!isMenuOpen) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'unset';
+        }
+    };
+
+    const closeMenu = () => {
+        setIsMenuOpen(false);
+        document.body.style.overflow = 'unset';
+    };
+
     return (
         <nav className={styles.navbar}>
-            <Link href="/" className={styles.logo}>
+            <Link href="/" className={styles.logo} onClick={closeMenu}>
                 <Image
                     src="/ofcnewlogo.png"
                     alt="Futsal Ottawa Logo"
-                    width={80}
-                    height={80}
+                    width={50}
+                    height={50}
                     className={styles.logoImage}
                     style={{ objectFit: 'contain' }}
                 />
+                <span className={styles.logoText}>FUTSAL OTTAWA</span>
             </Link>
 
-            <div className={styles.links}>
-                <Link href="/" className={styles.navLink}>Home</Link>
-                <Link href="/leagues" className={styles.navLink}>Leagues</Link>
-                <Link href="/schedule" className={styles.navLink}>Schedule</Link>
-                <Link href="/venues" className={styles.navLink}>Venues</Link>
-                <Link href="/contact" className={styles.navLink}>Contact</Link>
+            <div className={`${styles.links} ${isMenuOpen ? styles.linksActive : ''}`}>
+                <Link href="/" className={styles.navLink} onClick={closeMenu}>Home</Link>
+                <Link href="/leagues" className={styles.navLink} onClick={closeMenu}>Leagues</Link>
+                <Link href="/schedule" className={styles.navLink} onClick={closeMenu}>Schedule</Link>
+                <Link href="/venues" className={styles.navLink} onClick={closeMenu}>Venues</Link>
+                <Link href="/contact" className={styles.navLink} onClick={closeMenu}>Contact</Link>
             </div>
 
-            <div className={styles.mobileMenuBtn}>
-                {/* Simple Hamburger Icon */}
-                ☰
-            </div>
+            <button
+                className={`${styles.mobileMenuBtn} ${isMenuOpen ? styles.btnActive : ''}`}
+                onClick={toggleMenu}
+                aria-label="Toggle Menu"
+            >
+                <div className={styles.hamburger}></div>
+            </button>
+
+            {/* Backdrop */}
+            {isMenuOpen && <div className={styles.backdrop} onClick={closeMenu}></div>}
         </nav>
     );
 };

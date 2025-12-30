@@ -13,16 +13,28 @@
 }
 
 .logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
     font-family: var(--font-heading), sans-serif;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     font-weight: 700;
     color: var(--color-white);
     letter-spacing: 1px;
 }
 
+.logoText {
+    white-space: nowrap;
+}
+
 .logoImage {
     border-radius: 50%;
     background: transparent;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover .logoImage {
+    transform: rotate(15deg);
 }
 
 .links {
@@ -38,25 +50,102 @@
     text-transform: uppercase;
     letter-spacing: 0.5px;
     position: relative;
+    transition: color 0.3s ease;
 }
 
 .navLink:hover {
     color: var(--color-accent);
 }
 
-/* Mobile Menu Button (Hidden on Desktop) */
+.navLink::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-accent);
+    transition: width 0.3s ease;
+}
+
+.navLink:hover::after {
+    width: 100%;
+}
+
+/* Mobile Menu Button */
 .mobileMenuBtn {
     display: none;
     background: none;
     border: none;
-    color: var(--color-white);
-    font-size: 1.5rem;
     cursor: pointer;
+    padding: 10px;
+    z-index: 1100;
 }
 
-/* Helper for Buttons in Nav if needed */
-.navCta {
-    margin-left: 20px;
+.hamburger {
+    width: 24px;
+    height: 2px;
+    background-color: var(--color-white);
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.hamburger::before,
+.hamburger::after {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 2px;
+    background-color: var(--color-white);
+    transition: all 0.3s ease;
+}
+
+.hamburger::before {
+    transform: translateY(-8px);
+}
+
+.hamburger::after {
+    transform: translateY(8px);
+}
+
+.btnActive .hamburger {
+    background-color: transparent;
+}
+
+.btnActive .hamburger::before {
+    transform: rotate(45deg);
+}
+
+.btnActive .hamburger::after {
+    transform: rotate(-45deg);
+}
+
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    z-index: 1050;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@media (max-width: 992px) {
+    .links {
+        gap: 20px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -64,12 +153,42 @@
         padding: 0 20px;
     }
 
-    .links {
-        display: none;
-        /* Hide links on mobile for now (would need JS for drawer) */
+    .logoText {
+        font-size: 1.1rem;
     }
 
     .mobileMenuBtn {
         display: block;
+    }
+
+    .links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        max-width: 300px;
+        height: 100vh;
+        background-color: var(--color-bg-deep);
+        flex-direction: column;
+        justify-content: center;
+        gap: 40px;
+        transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 1080;
+        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .linksActive {
+        right: 0;
+    }
+
+    .navLink {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .logoText {
+        display: none;
+        /* Only show icon on very small screens to avoid overlap */
     }
 }
