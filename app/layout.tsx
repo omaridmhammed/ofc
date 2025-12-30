@@ -17,6 +17,9 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Futsal Ottawa | Official League",
   description: "Join the premier Futsal league in Ottawa. Competitive leagues, training, and tournaments.",
+  icons: {
+    icon: "/ofc/ofcnewlogo.png",
+  },
 };
 
 export default function RootLayout({
