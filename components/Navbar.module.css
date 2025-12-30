@@ -1,0 +1,75 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: var(--nav-height);
+    padding: 0 40px;
+    background-color: var(--color-navbar-bg);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.logo {
+    font-family: var(--font-heading), sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-white);
+    letter-spacing: 1px;
+}
+
+.logoImage {
+    border-radius: 50%;
+    background: transparent;
+}
+
+.links {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.navLink {
+    color: var(--color-white);
+    font-weight: 500;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    position: relative;
+}
+
+.navLink:hover {
+    color: var(--color-accent);
+}
+
+/* Mobile Menu Button (Hidden on Desktop) */
+.mobileMenuBtn {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--color-white);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Helper for Buttons in Nav if needed */
+.navCta {
+    margin-left: 20px;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 0 20px;
+    }
+
+    .links {
+        display: none;
+        /* Hide links on mobile for now (would need JS for drawer) */
+    }
+
+    .mobileMenuBtn {
+        display: block;
+    }
+}

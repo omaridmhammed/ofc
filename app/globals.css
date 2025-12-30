@@ -1,0 +1,117 @@
+:root {
+  /* Brand Colors - Option B: Electric Blue & Volt (Dark Mode) */
+  --color-primary: #0077B6;
+  /* Electric Blue */
+  --color-primary-hover: #023E8A;
+  /* Darker Blue */
+  --color-accent: #CCFF00;
+  /* Volt Green/Yellow */
+
+  --color-bg-deep: #050A14;
+  /* Very Dark Navy (Almost Black) */
+  --color-bg-card: #0B132B;
+  /* Dark Navy for cards */
+  --color-bg-card-hover: #1C2541;
+
+  --color-text-main: #FFFFFF;
+  /* White Text */
+  --color-text-muted: #94A3B8;
+  /* Slate Grey */
+  --color-text-inverted: #0B132B;
+  /* Dark Text for accents if needed */
+
+  --color-white: #ffffff;
+  --color-navbar-bg: rgba(11, 19, 43, 0.95);
+  /* Dark Navy Translucent */
+
+  /* Spacing */
+  --nav-height: 80px;
+  --container-width: 1200px;
+
+  /* Fonts */
+  --font-heading: 'Inter', sans-serif;
+  /* Example font */
+  --font-body: 'Inter', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  background-color: var(--color-bg-deep);
+  color: var(--color-text-main);
+  font-family: var(--font-body), sans-serif;
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading), sans-serif;
+  color: var(--color-text-main);
+  font-weight: 700;
+  margin-bottom: 20px;
+  line-height: 1.1;
+  text-transform: uppercase;
+  /* Sporty feel */
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Utilities */
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+}
+
+.btn-primary {
+  background-color: transparent;
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.btn-primary:hover {
+  background-color: rgba(100, 255, 218, 0.1);
+}
+
+.btn-solid {
+  background-color: var(--color-primary);
+  color: var(--color-bg-deep);
+}
+
+.btn-solid:hover {
+  background-color: var(--color-primary-hover);
+}
